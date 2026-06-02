@@ -1,0 +1,1 @@
+A Java desktop banking application built with a focus on secure transactions, user-friendly banking operations. Features include user authentication, deposits, withdrawals, fund transfers, balance tracking, transaction history, and database integration using Swing/JavaFX . Designed with clean architecture, scalable system design practices.
