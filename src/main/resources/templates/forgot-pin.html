@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Forgot PIN | Bank System</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            width: 380px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a2e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background: #16213e; }
+        .error {
+            background: #e74c3c;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .success {
+            background: #2ecc71;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .links {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #1a1a2e;
+            text-decoration: none;
+        }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>🔑 Reset PIN</h1>
+    <p class="subtitle">Verify your identity to reset your PIN</p>
+
+    <div class="error" th:if="${error}" th:text="${error}"></div>
+    <div class="success" th:if="${success}" th:text="${success}"></div>
+
+    <form action="/forgot-pin" method="post">
+        <input type="text" name="accountNumber"
+               placeholder="Account Number" required/>
+        <input type="tel" name="mobileNumber"
+               placeholder="Registered Phone Number" required/>
+        <input type="password" name="newPin"
+               placeholder="New 6-digit PIN" required/>
+        <input type="password" name="confirmPin"
+               placeholder="Confirm New PIN" required/>
+        <button type="submit">Reset PIN</button>
+    </form>
+
+    <div class="links">
+        Remembered your PIN? <a href="/">Back to Login</a>
+    </div>
+</div>
+</body>
+</html>

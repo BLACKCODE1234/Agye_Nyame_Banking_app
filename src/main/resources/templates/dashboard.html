@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard | Bank System</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: #1a1a2e;
+            color: white;
+            padding: 16px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h2 { font-size: 20px; }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            background: #e74c3c;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .navbar a:hover { background: #c0392b; }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .welcome {
+            font-size: 22px;
+            color: #1a1a2e;
+            margin-bottom: 24px;
+            font-weight: bold;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 10px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f2f5;
+            font-size: 15px;
+        }
+        .detail-row:last-child { border-bottom: none; }
+        .label { color: #888; }
+        .value { color: #1a1a2e; font-weight: bold; }
+        .account-badge {
+            background: #1a1a2e;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h2>🏦 Bank System</h2>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+    <p class="welcome">
+        Welcome back, <span th:text="${user.firstName}"></span>! 👋
+    </p>
+
+    <div class="card">
+        <h3>Account Details</h3>
+
+        <div class="detail-row">
+            <span class="label">Full Name</span>
+            <span class="value"
+                  th:text="${user.firstName} + ' ' + ${user.lastName}">
+            </span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Phone Number</span>
+            <span class="value" th:text="${user.phoneNumber}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Account Number</span>
+            <span class="account-badge"
+                  th:text="${user.accountNumber}">
+            </span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Account Status</span>
+            <span class="value" style="color: #2ecc71;">● Active</span>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

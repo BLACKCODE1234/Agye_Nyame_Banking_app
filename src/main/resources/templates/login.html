@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login | Agye Nyame Bank App</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            width: 380px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a2e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background: #16213e; }
+        .error {
+            background: #e74c3c;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .links {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #1a1a2e;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Agye Nyame Banking App</h1>
+    <p class="subtitle">Enter your account details to continue</p>
+
+    <div class="error" th:if="${error}" th:text="${error}"></div>
+
+    <form action="/login" method="post">
+        <input type="text" name="accountNumber"
+               placeholder="Account Number" required/>
+        <input type="password" name="pin"
+               placeholder="6-digit PIN" required/>
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="links">
+        <a href="/forgot-pin">Forgot PIN?</a> |
+        <a href="/register">Create Account</a>
+    </div>
+</div>
+</body>
+</html>
