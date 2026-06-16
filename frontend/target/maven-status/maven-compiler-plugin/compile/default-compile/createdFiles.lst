@@ -1,0 +1,10 @@
+com\agyenyame\bank\ui\SignupView.class
+com\agyenyame\bank\ui\ApiClient$ApiError.class
+com\agyenyame\bank\ui\LoginView.class
+com\agyenyame\bank\ui\UiUtil.class
+com\agyenyame\bank\ui\BankApp.class
+com\agyenyame\bank\ui\ApiClient.class
+module-info.class
+com\agyenyame\bank\ui\OtpView$Purpose.class
+com\agyenyame\bank\ui\DashboardView.class
+com\agyenyame\bank\ui\OtpView.class
